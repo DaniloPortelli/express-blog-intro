@@ -19,14 +19,15 @@ const port = 3000
 //Utilizzo metodo express per poter accedere ad elementi statici
 app.use(express.static("public"));
 
-// Definiamo la prima rotta
+// Definisco la prima rotta
 app.get("/", (req, res) => {
     res.send("Server del mio blog")
 })
 
 // Definisco la rotta /bacheca
 app.get("/bacheca", (req, res) => {
-    
+
+    //Inserisco all'interno una variabile con un array di oggetti
        const posts = [
             {
                 titolo: "Ciambellone",
@@ -59,44 +60,10 @@ app.get("/bacheca", (req, res) => {
                 tags: ["torta", "rustica", "tradizione"]
             }
         ]
+        //Con il metodo res.json() accedo agli oggetti dell'array e li mostro in pagina
         res.json(posts)
 })
 
-//Avviamo il server, mettendolo in ascolto sulla porta indicata, per far sì che funzioni dobbiamo avviarlo con npm start o watch
+//Avvio il server, mettendolo in ascolto sulla porta indicata, per far sì che funzioni avvio con npm o watch
 app.listen(port, () => {
-    console.log("prova")
 })
-
-
-// const posts = [
-//     {
-//         titolo: "Ciambellone",
-//         contenuto: "Un soffice e delizioso ciambellone perfetto per ogni occasione. Facile da preparare e ideale per la colazione.",
-//         immagine: "https://www.example.com/ciambellone.jpg",
-//         tags: ["dolce", "colazione", "soffice"]
-//     },
-//     {
-//         titolo: "Cracker alla Barbabietola",
-//         contenuto: "Cracker croccanti con un tocco di barbabietola. Perfetti come snack o accompagnamento a un antipasto.",
-//         immagine: "https://www.example.com/cracker-barbabietola.jpg",
-//         tags: ["snack", "vegano", "barbabietola"]
-//     },
-//     {
-//         titolo: "Pane Fritto Dolce",
-//         contenuto: "Pane fritto dolce con una spolverata di zucchero a velo. Un classico che non delude mai!",
-//         immagine: "https://www.example.com/pane-fritto-dolce.jpg",
-//         tags: ["dolce", "fritto", "tradizione"]
-//     },
-//     {
-//         titolo: "Pasta alla Barbabietola",
-//         contenuto: "Pasta fresca con un'incredibile salsa alla barbabietola. Un piatto unico e colorato per ogni pranzo.",
-//         immagine: "https://www.example.com/pasta-barbabietola.jpg",
-//         tags: ["pasta", "barbabietola", "piatto unico"]
-//     },
-//     {
-//         titolo: "Torta Paesana",
-//         contenuto: "Una torta rustica che richiama i sapori della tradizione. Facile da preparare e ideale per una merenda in famiglia.",
-//         immagine: "https://www.example.com/torta-paesana.jpg",
-//         tags: ["torta", "rustica", "tradizione"]
-//     }
-// ];
